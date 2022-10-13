@@ -27,9 +27,14 @@ function AnalogClock() {
           })}
         </div>
         {/* 시침 */}
-        <ClockHand color="black" width="8px" height="20%" deg={hour * 30} />
+        <ClockHand
+          color="black"
+          width="8px"
+          height="20%"
+          deg={hour * 30 + (minute * 6) / 12}
+        />
         {/* 분침 */}
-        <ClockHand color="black" width="8px" height="40%" deg={360 - minute} />
+        <ClockHand color="black" width="8px" height="40%" deg={minute * 6} />
         {/* 초침 */}
         <ClockHand color="red" width="4px" height="35%" deg={second * 6} />
       </div>
