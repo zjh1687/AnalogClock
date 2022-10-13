@@ -19,7 +19,6 @@ function AnalogClock() {
   }, 1000);
 
   const handleTooltip = (e: MouseEvent) => {
-    console.log(e.clientX, rootRef.current!.clientWidth);
     tooltipRef.current!.style.left = e.offsetX - 20 + 'px';
     tooltipRef.current!.style.top = e.offsetY - 60 + 'px';
   };
