@@ -10,18 +10,22 @@ function AnalogClock() {
   const dispatch = useTimeDispatch();
   const { hour, second, minute } = useTimeSelector((state) => state);
 
-  //현재 시간 상태 store 등록
-  setInterval(() => {
-    const time = new Date();
-    dispatch(setHour(time.getHours()));
-    dispatch(setMinute(time.getMinutes()));
-    dispatch(setSecond(time.getSeconds()));
-  }, 1000);
-
   const handleTooltip = (e: MouseEvent) => {
-    tooltipRef.current!.style.left = e.offsetX - 20 + 'px';
-    tooltipRef.current!.style.top = e.offsetY - 60 + 'px';
+    tooltipRef.current!.style.left = e.clientX + 'px';
+    tooltipRef.current!.style.top = e.clientY - 30 + 'px';
   };
+
+  //현재 시간 상태 store 등록
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const time = new Date();
+      dispatch(setHour(time.getHours()));
+      dispatch(setMinute(time.getMinutes()));
+      dispatch(setSecond(time.getSeconds()));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     rootRef.current?.addEventListener('mousemove', (e) => {
