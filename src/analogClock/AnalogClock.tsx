@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from 'react';
-import { useTimeDispatch, useTimeSelector } from 'src/store/hook';
-import { setTime } from 'src/store/reducer';
+import { useAppDispatch, useAppSelector } from 'src/store/hook';
 import ClockHand from './components/ClockHand';
 import HourNumber from './components/HourNumber';
+import Tooltip from './components/Tooltip';
+import { setTime } from './slices/timeSlice';
+import { setTooltipPosition } from './slices/tootipSlice';
 
 function AnalogClock() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const dispatch = useTimeDispatch();
-  const { hour, second, minute } = useTimeSelector((state) => state);
+  const dispatch = useAppDispatch();
+  const { hour, second, minute } = useAppSelector((state) => state.time);
 
   const handleTooltip = (e: MouseEvent) => {
-    tooltipRef.current!.style.left = e.clientX + 'px';
-    tooltipRef.current!.style.top = e.clientY - 30 + 'px';
+    dispatch(setTooltipPosition({ position: { x: e.clientX, y: e.clientY } }));
   };
 
   //현재 시간 상태 store 등록
@@ -57,9 +57,7 @@ function AnalogClock() {
         <ClockHand color="black" width="8px" height="40%" deg={minute * 6} />
         {/* 초침 */}
         <ClockHand color="red" width="4px" height="35%" deg={second * 6} />
-        <div className="tooltip" ref={tooltipRef}>
-          현재시각:{`${hour}시 ${minute}분 ${second}초`}
-        </div>
+        <Tooltip />
       </div>
     </div>
   );
