@@ -21,17 +21,11 @@ const TimeSlice = createSlice({
       state.minute = action.payload.getMinutes();
       state.second = action.payload.getSeconds();
     },
-    setMinute: (state: TimeCount, action: PayloadAction<number>) => {
-      state.minute = action.payload;
-    },
-    setSecond: (state: TimeCount, action: PayloadAction<number>) => {
-      state.second = action.payload;
-    },
   },
 });
 
 const { reducer } = TimeSlice;
 
-export const { setTime, setMinute, setSecond } = TimeSlice.actions;
+export const { setTime } = TimeSlice.actions;
 
 export default reducer;
