@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTimeDispatch, useTimeSelector } from 'src/store/hook';
-import { setHour, setMinute, setSecond } from 'src/store/reducer';
+import { setTime } from 'src/store/reducer';
 import ClockHand from './components/ClockHand';
 import HourNumber from './components/HourNumber';
 
@@ -19,9 +19,7 @@ function AnalogClock() {
   useEffect(() => {
     const interval = setInterval(() => {
       const time = new Date();
-      dispatch(setHour(time.getHours()));
-      dispatch(setMinute(time.getMinutes()));
-      dispatch(setSecond(time.getSeconds()));
+      dispatch(setTime(time));
     }, 1000);
 
     return () => clearInterval(interval);
