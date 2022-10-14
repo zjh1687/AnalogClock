@@ -5,6 +5,7 @@ interface TimeCount {
   minute: number;
   second: number;
 }
+
 const initialState: TimeCount = {
   hour: 0,
   minute: 0,
@@ -15,8 +16,10 @@ const TimeSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setHour: (state: TimeCount, action: PayloadAction<number>) => {
-      state.hour = action.payload;
+    setTime: (state: TimeCount, action: PayloadAction<Date>) => {
+      state.hour = action.payload.getHours();
+      state.minute = action.payload.getMinutes();
+      state.second = action.payload.getSeconds();
     },
     setMinute: (state: TimeCount, action: PayloadAction<number>) => {
       state.minute = action.payload;
@@ -29,6 +32,6 @@ const TimeSlice = createSlice({
 
 const { reducer } = TimeSlice;
 
-export const { setHour, setMinute, setSecond } = TimeSlice.actions;
+export const { setTime, setMinute, setSecond } = TimeSlice.actions;
 
 export default reducer;
