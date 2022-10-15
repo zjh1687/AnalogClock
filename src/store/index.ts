@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import reducer from './reducer';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: reducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -12,3 +12,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type TimeDispatch = typeof store.dispatch;
+export default store;
