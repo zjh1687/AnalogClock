@@ -1,12 +1,27 @@
 # AnalogClock
 
-Setup
+
+## Setup
+
 Install npm packages:
 
-npm install
-Development
+    npm install
+
+
+## Development
+
 Start the development server:
 
-npm start
-Testing
-Run tests with jest:
+    npm start
+
+
+## Technologies
+
+- React (CRA)
+- TypeScript
+- Scss
+- Redux, Redux-Toolkit
+
+## Feature
+
+- AnalogClock
