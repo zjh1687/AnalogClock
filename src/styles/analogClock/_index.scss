@@ -19,24 +19,10 @@
       justify-content: center;
       align-items: start;
     }
-    //시, 분, 초침
-    .clock-hand {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform-origin: 50% 70%;
-    }
     &:hover {
       .tooltip {
         visibility: visible;
       }
-    }
-    .tooltip {
-      visibility: hidden;
-      width: 200px;
-      color: black;
-      z-index: 10;
-      position: absolute;
     }
   }
 }
