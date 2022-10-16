@@ -1,20 +1,22 @@
 import React from 'react';
-function ClockHand(props: {
-  color: 'black' | 'red';
-  width: string;
-  height: string;
-  deg: number;
-}) {
+import BaseHand from 'src/components/BaseHand';
+import { useAppSelector } from 'src/store/hook';
+function ClockHand() {
+  const { hour, second, minute } = useAppSelector((state) => state.time);
+
   return (
-    <div
-      className="clock-hand"
-      style={{
-        width: `${props.width}`,
-        height: `${props.height}`,
-        backgroundColor: `${props.color}`,
-        transform: `translate(-50%, -70%) rotate(${props.deg}deg)`,
-      }}
-    />
+    <div>
+      <BaseHand
+        color="black"
+        width="8px"
+        height="20%"
+        deg={hour * 30 + (minute * 6) / 12}
+      />
+      {/* 분침 */}
+      <BaseHand color="black" width="8px" height="40%" deg={minute * 6} />
+      {/* 초침 */}
+      <BaseHand color="red" width="4px" height="35%" deg={second * 6} />
+    </div>
   );
 }
 
