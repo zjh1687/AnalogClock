@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import ClockTooltip from 'src/components/feature/ClockTooltip';
 import { useAppDispatch, useAppSelector } from 'src/store/hook';
 import ClockHand from './components/ClockHand';
 import HourNumber from './components/HourNumber';
-import Tooltip from './components/Tooltip';
+
 import { setTime } from './slices/timeSlice';
 import { setTooltipPosition } from './slices/tootipSlice';
 
@@ -56,7 +57,7 @@ function AnalogClock() {
         <ClockHand color="black" width="8px" height="40%" deg={minute * 6} />
         {/* 초침 */}
         <ClockHand color="red" width="4px" height="35%" deg={second * 6} />
-        <Tooltip />
+        <ClockTooltip />
       </div>
     </div>
   );

@@ -1,15 +1,16 @@
 import React from 'react';
+import FollowTooltip from 'src/components/FollowTooltip';
 import { useAppSelector } from 'src/store/hook';
 
-function Tooltip() {
+function ClockTooltip() {
   const { hour, minute, second } = useAppSelector((state) => state.time);
   const { x, y } = useAppSelector((state) => state.tooltlp.position);
 
   return (
-    <div className="tooltip" style={{ left: `${x}px`, top: `${y - 30}px` }}>
+    <FollowTooltip x={x} y={y}>
       현재시각:{`${hour}시 ${minute}분 ${second}초`}
-    </div>
+    </FollowTooltip>
   );
 }
 
-export default Tooltip;
+export default ClockTooltip;

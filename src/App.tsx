@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AnalogClock from './feature/analogClock/AnalogClock';
+import AnalogClock from './analogClock/AnalogClock';
 
 function App() {
   return <AnalogClock />;
