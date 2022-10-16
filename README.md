@@ -1,5 +1,6 @@
 # AnalogClock
 
+ 김승철 코딩테스트
 
 ## Setup
 
