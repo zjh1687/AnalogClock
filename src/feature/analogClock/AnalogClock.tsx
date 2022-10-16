@@ -41,11 +41,10 @@ function AnalogClock() {
   return (
     <div className="clock-wrapper">
       <div className="clock-circle" ref={rootRef}>
-        <div className="hour">
-          {clockNumberArr.map((i) => {
-            return <HourNumber key={`hour+${i}`} number={i + 1} />;
-          })}
-        </div>
+        {clockNumberArr.map((i) => {
+          return <HourNumber key={`hour+${i}`} number={i + 1} />;
+        })}
+
         {/* 시침 */}
         <ClockHand
           color="black"

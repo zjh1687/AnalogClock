@@ -1,5 +1,7 @@
-import TimeSlice, { TimeCount } from 'src/analogClock/slices/timeSlice';
-import TooltipSlice, { TooltipState } from 'src/analogClock/slices/tootipSlice';
+import TimeSlice, { TimeCount } from 'src/feature/analogClock/slices/timeSlice';
+import TooltipSlice, {
+  TooltipState,
+} from 'src/feature/analogClock/slices/tootipSlice';
 
 export default {
   time: TimeSlice,
